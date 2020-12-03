@@ -18,6 +18,55 @@ class PasswordCheckerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func test_ValidTobogganPasswordReturns_1() throws {
+        // Given
+        let stringToCheck =
+            """
+            1-3 a: abcde
+            """
+        let expected = 1
+        
+        // When
+        let actual = PasswordChecker.validateForTobogganRental(passwords: stringToCheck)
+        
+        // Then
+        XCTAssertEqual(actual, expected, "Password should be valid")
+    }
+    
+    func test_twoTobogganPasswordsOneValidOneNotReturns_1() throws {
+        // Given
+        let stringToCheck =
+            """
+            1-3 a: abcde
+            2-9 c: ccccccccc
+            """
+        
+        let expected = 1
+        
+        // When
+        let actual = PasswordChecker.validateForTobogganRental(passwords: stringToCheck)
+        
+        // Then
+        XCTAssertEqual(actual, expected, "Two passwords should be valid")
+    }
+
+    func test_inalidTobogganPasswordsReturns_0() throws {
+        // Given
+        let stringToCheck =
+            """
+            1-3 b: cdefg
+            2-9 c: ccccccccc
+            """
+
+        let expected = 0
+        
+        // When
+        let actual = PasswordChecker.validateForTobogganRental(passwords: stringToCheck)
+        
+        // Then
+        XCTAssertEqual(actual, expected, "Password should be invalid")
+    }
+    
     func test_ValidPasswordReturns_1() throws {
         // Given
         let stringToCheck =
@@ -27,7 +76,7 @@ class PasswordCheckerTests: XCTestCase {
         let expected = 1
         
         // When
-        let actual = PasswordChecker.validate(passwords: stringToCheck)
+        let actual = PasswordChecker.validateForSledRental(passwords: stringToCheck)
         
         // Then
         XCTAssertEqual(actual, expected, "Password should be valid")
@@ -44,7 +93,7 @@ class PasswordCheckerTests: XCTestCase {
         let expected = 2
         
         // When
-        let actual = PasswordChecker.validate(passwords: stringToCheck)
+        let actual = PasswordChecker.validateForSledRental(passwords: stringToCheck)
         
         // Then
         XCTAssertEqual(actual, expected, "Two passwords should be valid")
@@ -60,7 +109,7 @@ class PasswordCheckerTests: XCTestCase {
         let expected = 0
         
         // When
-        let actual = PasswordChecker.validate(passwords: stringToCheck)
+        let actual = PasswordChecker.validateForSledRental(passwords: stringToCheck)
         
         // Then
         XCTAssertEqual(actual, expected, "Password should be invalid")

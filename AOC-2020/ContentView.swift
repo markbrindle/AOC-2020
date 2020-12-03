@@ -12,13 +12,15 @@ struct ContentView: View {
     var body: some View {
         let twoItems = expenseReport1()
         let threeItems = expenseReport2()
-        let validPasswords = validatePasswords()
+        let validSledPasswords = validateSledPasswords()
+        let validTobogganPasswords = validateTobogganPasswords()
         return VStack {
             Text(twoItems.description)
             Text((twoItems[0] * twoItems[1]).description)
             Text(threeItems.description)
             Text((threeItems[0] * threeItems[1] * threeItems[2]).description)
-            Text(validPasswords.description)
+            Text(validSledPasswords.description)
+            Text(validTobogganPasswords.description)
         }.padding()
     }
     
@@ -67,8 +69,12 @@ struct ContentView: View {
         return [0, 0, 0]
     }
     
-    func validatePasswords() -> Int {
-        return PasswordChecker.validate(passwords: Inputs.day2_1)
+    func validateSledPasswords() -> Int {
+        return PasswordChecker.validateForSledRental(passwords: Inputs.day2_1)
+    }
+
+    func validateTobogganPasswords() -> Int {
+        return PasswordChecker.validateForTobogganRental(passwords: Inputs.day2_1)
     }
 }
 

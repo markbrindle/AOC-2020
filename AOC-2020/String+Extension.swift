@@ -8,7 +8,31 @@
 import Foundation
 
 extension String {
-    func isValidPassword() -> Bool {
+
+    func validSledRentalPasswords() -> Bool {
+        validPasswords(policy: validateSledRental)
+    }
+    
+    func validTobogganRentalPasswords() -> Bool {
+        validPasswords(policy: validateTobogganRental)
+    }
+    
+    private func validateSledRental(password: String, policyValue: String, min: Int, max: Int) -> Bool {
+        // How many times does the policy value appear in the password
+        let result = password.replacingOccurrences(of: policyValue, with: "", options: [], range: nil)
+        let occurrences = (password.count - result.count) / policyValue.count
+        
+        return occurrences >= min && occurrences <= max
+    }
+
+    private func validateTobogganRental(password: String, policyValue: String, firstPosition: Int, secondPosition: Int) -> Bool {
+        // How many times does the policy value appear in the specified positions
+        let firstVal = String(password[password.index(password.startIndex, offsetBy: firstPosition - 1)])
+        let secondVal = String(password[password.index(password.startIndex, offsetBy: secondPosition - 1)])
+        return (firstVal == policyValue || secondVal == policyValue) && (firstVal != secondVal)
+    }
+
+    func validPasswords(policy: (_ password: String, _ policyValue: String, _ min: Int, _ max: Int) -> Bool) -> Bool {
         /*
          Unpack the policy data - e.g. 1-3 a: abcde
          
@@ -34,11 +58,8 @@ extension String {
         else {
             return false
         }
-
-        // How many times does the policy value appear in the password
-        let result = password.replacingOccurrences(of: policyValue, with: "", options: [], range: nil)
-        let occurrences = (password.count - result.count) / policyValue.count
         
-        return occurrences >= min && occurrences <= max
+        return policy(password, policyValue, min, max)
     }
+    
 }
