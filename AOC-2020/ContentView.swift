@@ -85,11 +85,24 @@ struct ContentView: View {
                     }
                 }
                 VStack (spacing: 2) {
-                    Text("Day 4 Part 1 Result :")
+                    Text("Day 4 Part 2 Result :")
                     HStack {
                         Text("Valid passports: ")
                         Spacer()
                         Text("\(validatePasswords())")
+                    }
+                }
+                VStack (spacing: 2) {
+                    Text("Day 5 Part 1 Result :")
+                    HStack {
+                        Text("Highest Seat ID: ")
+                        Spacer()
+                        Text("\(SeatingLocator.highestSeatID(from: Day_05.input)?.seatID ?? 0)")
+                    }
+                    HStack {
+                        Text("Missing Seat ID: ")
+                        Spacer()
+                        Text("\(findSeat())")
                     }
                 }
             }
@@ -168,6 +181,27 @@ struct ContentView: View {
             print("Oops!")
             return 0
         }
+    }
+    
+    func findSeat() -> Int {
+        let allSeats = SeatingLocator.allSeats(from: Day_05.input)
+        let sortedSeatIDs = allSeats.keys.sorted()
+        var missingSeatID = 0
+        var currentSeatID = sortedSeatIDs.first!
+        var index = 1
+        let maxIndex = sortedSeatIDs.count
+        while missingSeatID == 0 {
+            let prospectiveSeatID = sortedSeatIDs[index]
+            if prospectiveSeatID > currentSeatID + 1 {
+                missingSeatID = currentSeatID + 1
+            }
+            currentSeatID = prospectiveSeatID
+            index += 1
+            if index == maxIndex {
+                missingSeatID = -1
+            }
+        }
+        return missingSeatID
     }
 }
 
