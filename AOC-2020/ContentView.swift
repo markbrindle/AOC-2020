@@ -84,6 +84,14 @@ struct ContentView: View {
                         Text(tobogganRun(horizontal: "R1", vertical: "D2"))
                     }
                 }
+                VStack (spacing: 2) {
+                    Text("Day 4 Part 1 Result :")
+                    HStack {
+                        Text("Valid passports: ")
+                        Spacer()
+                        Text("\(validatePasswords())")
+                    }
+                }
             }
         }.padding()
     }
@@ -144,6 +152,22 @@ struct ContentView: View {
     func tobogganRun(horizontal: String, vertical: String) -> String {
         toboggan.movement = Move(horizontal: horizontal, vertical: vertical)
         return "\(toboggan.traverseFromOrigin().replacingOccurrences(of: ".", with: "").count)"
+    }
+    
+    func validatePasswords() -> Int {
+        do {
+            return try PassportBuilder.build(from: Day_04.input).filter(
+                {
+                    let result = $0.validate()
+                    switch result {
+                    case .success(let isValid): return isValid
+                    case .failure(_): return false
+                    }
+                }).count
+        } catch {
+            print("Oops!")
+            return 0
+        }
     }
 }
 
