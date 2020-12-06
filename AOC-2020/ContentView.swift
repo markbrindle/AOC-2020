@@ -105,6 +105,19 @@ struct ContentView: View {
                         Text("\(findSeat())")
                     }
                 }
+                VStack (spacing: 2) {
+                    Text("Day 6 Part 1 Result :")
+                    HStack {
+                        Text("Answer count: ")
+                        Spacer()
+                        Text("\(CustomsDeclaration.answerCount(for: Day_06.input))")
+                    }
+                    HStack {
+                        Text("Missing Seat ID: ")
+                        Spacer()
+                        Text("\(findSeat())")
+                    }
+                }
             }
         }.padding()
     }
