@@ -110,12 +110,12 @@ struct ContentView: View {
                     HStack {
                         Text("Answer count: ")
                         Spacer()
-                        Text("\(CustomsDeclaration.answerCount(for: Day_06.input))")
+                        Text("\(CustomsDeclaration.answerAnyCount(for: Day_06.input))")
                     }
                     HStack {
-                        Text("Missing Seat ID: ")
+                        Text("All Answer count: ")
                         Spacer()
-                        Text("\(findSeat())")
+                        Text("\(CustomsDeclaration.answerAllCount(for: Day_06.input))")
                     }
                 }
             }
