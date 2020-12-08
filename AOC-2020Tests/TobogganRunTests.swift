@@ -166,10 +166,14 @@ class TobogganRunTests: XCTestCase {
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+        var treesEncountered: Int = 0
         self.measure {
-            // Put the code you want to measure the time of here.
+            let toboggan = Toboggan(origin: Point(x: 0, y: 0))
+            toboggan.navigate(through: Day_03.input)
+            toboggan.movement = Move(horizontal: "R3", vertical: "D1")
+            treesEncountered = toboggan.traverse().replacingOccurrences(of: ".", with: "").count
         }
+        print("treesEncountered = \(treesEncountered)")
     }
 
 }
