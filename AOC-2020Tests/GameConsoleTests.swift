@@ -90,10 +90,10 @@ acc +6
         XCTAssertEqual(expectedAccumulatorValue, accumulator, "Program was run incorrectly")
     }
 
-    func testAccumulatorValueBeforeRerunningCommandHasAccumulatorValue_1476() throws {
+    func testAccumulatorValueBeforeRerunningCommandHasAccumulatorValue_1475() throws {
         // Given
         let program = Day_08.input
-        let expectedAccumulatorValue = 1476
+        let expectedAccumulatorValue = 1475
         
         // When
         let accumulator = try Console.run(program)
@@ -107,6 +107,188 @@ acc +6
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+
+/*
+     --- Part Two ---
+
+After some careful analysis, you believe that exactly one instruction is corrupted.
+
+Somewhere in the program, either a jmp is supposed to be a nop, or a nop is supposed to be a jmp. (No acc instructions were harmed in the corruption of this boot code.)
+
+The program is supposed to terminate by attempting to execute an instruction immediately after the last instruction in the file. By changing exactly one jmp or nop, you can repair the boot code and make it terminate correctly.
+
+For example, consider the same program from above:
+
+nop +0
+acc +1
+jmp +4
+acc +3
+jmp -3
+acc -99
+acc +1
+jmp -4
+acc +6
+
+If you change the first instruction from nop +0 to jmp +0, it would create a single-instruction infinite loop, never leaving that instruction. If you change almost any of the jmp instructions, the program will still eventually find another jmp instruction and loop forever.
+
+However, if you change the second-to-last instruction (from jmp -4 to nop -4), the program terminates! The instructions are visited in this order:
+
+nop +0  | 1
+acc +1  | 2
+jmp +4  | 3
+acc +3  |
+jmp -3  |
+acc -99 |
+acc +1  | 4
+nop -4  | 5
+acc +6  | 6
+
+After the last instruction (acc +6), the program terminates by attempting to run the instruction below the last instruction in the file. With this change, after the program terminates, the accumulator contains the value 8 (acc +1, acc +1, acc +6).
+
+Fix the program so that it terminates normally by changing exactly one jmp (to nop) or nop (to jmp). What is the value of the accumulator after the program terminates?
+
+*/
+
+    func testProgramFixUsingNoOpHasAccumulatorValue_0() throws {
+        // Given
+        let program =
+"""
+nop +0
+acc +1
+jmp +4
+acc +3
+jmp -3
+acc -99
+acc +1
+jmp -4
+acc +6
+"""
+        let expectedAccumulatorValue = 0
+        
+        // When
+        let programFix = ProgramCode(code: program)
+        // Run the program after changing one command & see if the run encounters a duplicate command
+        var ptr: ProgramPointer?
+        while true {
+            do {
+                ptr = try programFix.swap(operation: .nop, after: ptr)
+                if  let result = ptr, result < 0 {
+                    break
+                }
+                _ = try programFix.run()
+            } catch let programError as ProgramError {
+                switch programError {
+                    case .duplicateCommand: continue
+                    case .outOfBounds: break
+                }
+            }
+        }
+        
+        // Then
+        XCTAssertEqual(expectedAccumulatorValue, programFix.accumulator, "Program was not fixed")
+    }
+
+    func testProgramFixUsingJmpHasAccumulatorValue_8() throws {
+        // Given
+        let program =
+"""
+nop +0
+acc +1
+jmp +4
+acc +3
+jmp -3
+acc -99
+acc +1
+jmp -4
+acc +6
+"""
+        let expectedAccumulatorValue = 8
+        
+        // When
+        let programFix = ProgramCode(code: program)
+        // Run the program after changing one command & see if the run encounters a duplicate command
+        var ptr: ProgramPointer?
+        var programCompleted = false
+        while !programCompleted {
+            if  let result = ptr, result < 0 {
+                break
+            }
+            do {
+                ptr = try programFix.swap(operation: .jmp, after: ptr)
+                _ = try programFix.run()
+            } catch let programError as ProgramError {
+                switch programError {
+                    case .duplicateCommand: continue
+                    case .outOfBounds: programCompleted = true
+                }
+            }
+        }
+        
+        // Then
+        XCTAssertEqual(expectedAccumulatorValue, programFix.accumulator, "Program was not fixed")
+    }
+
+    func testRealProgramFixUsingJmpHasAccumulatorValue_1270() throws {
+        // Given
+        let program = Day_08.input
+        let expectedAccumulatorValue = 1270
+        
+        // When
+        let programFix = ProgramCode(code: program)
+        var programCompleted = false
+        // Run the program after changing one command & see if the run encounters a duplicate command
+        var ptr: ProgramPointer?
+        while !programCompleted {
+            if  let result = ptr, result < 0 {
+                break
+            }
+            do {
+                ptr = try programFix.swap(operation: .jmp, after: ptr)
+                _ = try programFix.run()
+            } catch let programError as ProgramError {
+                switch programError {
+                    case .duplicateCommand: continue
+                    case .outOfBounds:
+                        programCompleted = true
+                        break
+                }
+            }
+        }
+        
+        // Then
+        XCTAssertTrue(programCompleted, "Program failed to complete")
+        XCTAssertEqual(expectedAccumulatorValue, programFix.accumulator, "Program was not fixed")
+    }
+
+    func testRealProgramFixUsingNopHasAccumulatorValue_84() throws {
+        // Given
+        let program = Day_08.input
+        
+        // When
+        let programFix = ProgramCode(code: program)
+        var programCompleted = false
+        // Run the program after changing one command & see if the run encounters a duplicate command
+        var ptr: ProgramPointer?
+        while !programCompleted {
+            if  let result = ptr, result < 0 {
+                break
+            }
+            do {
+                ptr = try programFix.swap(operation: .nop, after: ptr)
+                _ = try programFix.run()
+            } catch let programError as ProgramError {
+                switch programError {
+                    case .duplicateCommand: continue
+                    case .outOfBounds:
+                        programCompleted = true
+                        break
+                }
+            }
+        }
+        
+        // Then
+        XCTAssertFalse(programCompleted, "Program failed to complete")
     }
 
 }
