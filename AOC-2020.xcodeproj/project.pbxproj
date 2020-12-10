@@ -31,6 +31,9 @@
 		4D0D220B257F872F00004050 /* GameConsoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D220A257F872E00004050 /* GameConsoleTests.swift */; };
 		4D0D2210257F87E700004050 /* Day_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D220F257F87E700004050 /* Day_08.swift */; };
 		4D0D2215257FA9D100004050 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D2214257FA9D100004050 /* Console.swift */; };
+		4D0D221D258220AC00004050 /* XMASTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D221C258220AC00004050 /* XMASTests.swift */; };
+		4D0D223925826F3800004050 /* Day_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D223825826F3800004050 /* Day_09.swift */; };
+		4D0D223E258270CB00004050 /* XMAS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D223D258270CB00004050 /* XMAS.swift */; };
 		4D87C5052576D4C80053B0BE /* AOC_2020App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C5042576D4C80053B0BE /* AOC_2020App.swift */; };
 		4D87C5072576D4C80053B0BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C5062576D4C80053B0BE /* ContentView.swift */; };
 		4D87C5092576D4CA0053B0BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D87C5082576D4CA0053B0BE /* Assets.xcassets */; };
@@ -81,6 +84,9 @@
 		4D0D220A257F872E00004050 /* GameConsoleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConsoleTests.swift; sourceTree = "<group>"; };
 		4D0D220F257F87E700004050 /* Day_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day_08.swift; sourceTree = "<group>"; };
 		4D0D2214257FA9D100004050 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		4D0D221C258220AC00004050 /* XMASTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMASTests.swift; sourceTree = "<group>"; };
+		4D0D223825826F3800004050 /* Day_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day_09.swift; sourceTree = "<group>"; };
+		4D0D223D258270CB00004050 /* XMAS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMAS.swift; sourceTree = "<group>"; };
 		4D87C5012576D4C80053B0BE /* AOC-2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC-2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D87C5042576D4C80053B0BE /* AOC_2020App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC_2020App.swift; sourceTree = "<group>"; };
 		4D87C5062576D4C80053B0BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				4D0D21E0257D6A0B00004050 /* Day_06.swift */,
 				4D0D21F2257E2ACB00004050 /* Day_07.swift */,
 				4D0D220F257F87E700004050 /* Day_08.swift */,
+				4D0D223825826F3800004050 /* Day_09.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				4D0D21D3257D307500004050 /* SeatingLocator.swift */,
 				4D0D217325793BDB00004050 /* String+Extension.swift */,
 				4D0D21A72579988A00004050 /* Toboggan.swift */,
+				4D0D223D258270CB00004050 /* XMAS.swift */,
 			);
 			path = "AOC-2020";
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 				4D0D21692578243700004050 /* PasswordCheckerTests.swift */,
 				4D0D21C6257D29FA00004050 /* SeatingLocatorTests.swift */,
 				4D0D21A22579944500004050 /* TobogganRunTests.swift */,
+				4D0D221C258220AC00004050 /* XMASTests.swift */,
 			);
 			path = "AOC-2020Tests";
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				4D0D21E9257D6C3800004050 /* CustomsDeclaration.swift in Sources */,
 				4D0D21BF257C438900004050 /* PassportBuilder.swift in Sources */,
 				4D0D218925798E9000004050 /* Day_01.swift in Sources */,
+				4D0D223E258270CB00004050 /* XMAS.swift in Sources */,
 				4D0D21652578236E00004050 /* PasswordChecker.swift in Sources */,
 				4D0D21A82579988A00004050 /* Toboggan.swift in Sources */,
 				4D87C5072576D4C80053B0BE /* ContentView.swift in Sources */,
@@ -356,6 +366,7 @@
 				4D0D219125798EDA00004050 /* Day_02.swift in Sources */,
 				4D0D21BA257BE90600004050 /* Passport.swift in Sources */,
 				4D0D218425798E5200004050 /* Day_03.swift in Sources */,
+				4D0D223925826F3800004050 /* Day_09.swift in Sources */,
 				4D0D21AD257BE4F700004050 /* Day_04.swift in Sources */,
 				4D0D21F8257E365F00004050 /* LuggageHandler.swift in Sources */,
 			);
@@ -370,6 +381,7 @@
 				4D0D216A2578243700004050 /* PasswordCheckerTests.swift in Sources */,
 				4D0D21EE257E29E100004050 /* LuggageHandlerTests.swift in Sources */,
 				4D87C5172576D4CB0053B0BE /* AOC_2020Tests.swift in Sources */,
+				4D0D221D258220AC00004050 /* XMASTests.swift in Sources */,
 				4D0D21DC257D69A200004050 /* CustomsDeclarationsTests.swift in Sources */,
 				4D0D21C7257D29FA00004050 /* SeatingLocatorTests.swift in Sources */,
 				4D0D21A32579944500004050 /* TobogganRunTests.swift in Sources */,
