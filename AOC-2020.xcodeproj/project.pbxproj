@@ -34,6 +34,9 @@
 		4D0D221D258220AC00004050 /* XMASTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D221C258220AC00004050 /* XMASTests.swift */; };
 		4D0D223925826F3800004050 /* Day_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D223825826F3800004050 /* Day_09.swift */; };
 		4D0D223E258270CB00004050 /* XMAS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D223D258270CB00004050 /* XMAS.swift */; };
+		4D0D22432584076C00004050 /* JoltageAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D22422584076C00004050 /* JoltageAdapterTests.swift */; };
+		4D0D22482584096800004050 /* Day_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D22472584096700004050 /* Day_10.swift */; };
+		4D0D224D258409BC00004050 /* JoltageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0D224C258409BC00004050 /* JoltageAdapter.swift */; };
 		4D87C5052576D4C80053B0BE /* AOC_2020App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C5042576D4C80053B0BE /* AOC_2020App.swift */; };
 		4D87C5072576D4C80053B0BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C5062576D4C80053B0BE /* ContentView.swift */; };
 		4D87C5092576D4CA0053B0BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D87C5082576D4CA0053B0BE /* Assets.xcassets */; };
@@ -87,6 +90,9 @@
 		4D0D221C258220AC00004050 /* XMASTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMASTests.swift; sourceTree = "<group>"; };
 		4D0D223825826F3800004050 /* Day_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day_09.swift; sourceTree = "<group>"; };
 		4D0D223D258270CB00004050 /* XMAS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMAS.swift; sourceTree = "<group>"; };
+		4D0D22422584076C00004050 /* JoltageAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoltageAdapterTests.swift; sourceTree = "<group>"; };
+		4D0D22472584096700004050 /* Day_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day_10.swift; sourceTree = "<group>"; };
+		4D0D224C258409BC00004050 /* JoltageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoltageAdapter.swift; sourceTree = "<group>"; };
 		4D87C5012576D4C80053B0BE /* AOC-2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC-2020.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D87C5042576D4C80053B0BE /* AOC_2020App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC_2020App.swift; sourceTree = "<group>"; };
 		4D87C5062576D4C80053B0BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				4D0D21F2257E2ACB00004050 /* Day_07.swift */,
 				4D0D220F257F87E700004050 /* Day_08.swift */,
 				4D0D223825826F3800004050 /* Day_09.swift */,
+				4D0D22472584096700004050 /* Day_10.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 				4D0D21E8257D6C3800004050 /* CustomsDeclaration.swift */,
 				4D87C50D2576D4CB0053B0BE /* Info.plist */,
 				4D0D219825798F2A00004050 /* Inputs */,
+				4D0D224C258409BC00004050 /* JoltageAdapter.swift */,
 				4D0D21F7257E365F00004050 /* LuggageHandler.swift */,
 				4D0D21B9257BE90600004050 /* Passport.swift */,
 				4D0D21BE257C438900004050 /* PassportBuilder.swift */,
@@ -200,6 +208,7 @@
 				4D0D21DB257D69A200004050 /* CustomsDeclarationsTests.swift */,
 				4D0D220A257F872E00004050 /* GameConsoleTests.swift */,
 				4D87C5182576D4CB0053B0BE /* Info.plist */,
+				4D0D22422584076C00004050 /* JoltageAdapterTests.swift */,
 				4D0D21ED257E29E100004050 /* LuggageHandlerTests.swift */,
 				4D0D21B1257BE68700004050 /* PassportValidatorTests.swift */,
 				4D0D21692578243700004050 /* PasswordCheckerTests.swift */,
@@ -357,9 +366,11 @@
 				4D0D21652578236E00004050 /* PasswordChecker.swift in Sources */,
 				4D0D21A82579988A00004050 /* Toboggan.swift in Sources */,
 				4D87C5072576D4C80053B0BE /* ContentView.swift in Sources */,
+				4D0D22482584096800004050 /* Day_10.swift in Sources */,
 				4D0D2210257F87E700004050 /* Day_08.swift in Sources */,
 				4D0D21CC257D2AA800004050 /* Day_05.swift in Sources */,
 				4D0D217425793BDB00004050 /* String+Extension.swift in Sources */,
+				4D0D224D258409BC00004050 /* JoltageAdapter.swift in Sources */,
 				4D0D2215257FA9D100004050 /* Console.swift in Sources */,
 				4D87C5052576D4C80053B0BE /* AOC_2020App.swift in Sources */,
 				4D0D21F3257E2ACB00004050 /* Day_07.swift in Sources */,
@@ -380,6 +391,7 @@
 				4D0D220B257F872F00004050 /* GameConsoleTests.swift in Sources */,
 				4D0D216A2578243700004050 /* PasswordCheckerTests.swift in Sources */,
 				4D0D21EE257E29E100004050 /* LuggageHandlerTests.swift in Sources */,
+				4D0D22432584076C00004050 /* JoltageAdapterTests.swift in Sources */,
 				4D87C5172576D4CB0053B0BE /* AOC_2020Tests.swift in Sources */,
 				4D0D221D258220AC00004050 /* XMASTests.swift in Sources */,
 				4D0D21DC257D69A200004050 /* CustomsDeclarationsTests.swift in Sources */,
